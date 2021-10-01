@@ -36,10 +36,10 @@ jobs:
       run: make build
     - name: Unit Test
       run: make test
-    - name: Acceptance Test
-      env:
-        CONFLUENCE_SITE: ${{ secrets.CONFLUENCE_SITE }}
-        CONFLUENCE_USER: ${{ secrets.CONFLUENCE_USER }}
-        CONFLUENCE_TOKEN: ${{ secrets.CONFLUENCE_TOKEN }}
-        CONFLUENCE_SPACE: ${{ secrets.CONFLUENCE_SPACE }}
-      run: make testacc
+    # - name: Acceptance Test
+    #   env:
+    #     CONFLUENCE_SITE: ${{ secrets.CONFLUENCE_SITE }}
+    #     CONFLUENCE_USER: ${{ secrets.CONFLUENCE_USER }}
+    #     CONFLUENCE_TOKEN: ${{ secrets.CONFLUENCE_TOKEN }}
+    #     CONFLUENCE_SPACE: ${{ secrets.CONFLUENCE_SPACE }}
+    #   run: make testacc
