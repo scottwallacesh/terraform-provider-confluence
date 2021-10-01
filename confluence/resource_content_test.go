@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 )
 
 func TestAccConfluenceContent_Updated(t *testing.T) {
 	rName := acctest.RandomWithPrefix("resource-content-test")
+	resourceName := "confluence_content.default"
 	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { testAccPreCheck(t) },
 		Providers:    testAccProviders,
@@ -18,25 +19,19 @@ func TestAccConfluenceContent_Updated(t *testing.T) {
 			{
 				Config: testAccCheckConfluenceContentConfigRequired(rName),
 				Check: resource.ComposeTestCheckFunc(
-					testAccCheckConfluenceExists("confluence_content.default"),
-					resource.TestCheckResourceAttr(
-						"confluence_content.default", "title", rName),
-					resource.TestCheckResourceAttr(
-						"confluence_content.default", "body", "Original value"),
-					resource.TestCheckResourceAttr(
-						"confluence_content.default", "version", "1"),
+					testAccCheckConfluenceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "title", rName),
+					resource.TestCheckResourceAttr(resourceName, "body", "Original value"),
+					resource.TestCheckResourceAttr(resourceName, "version", "1"),
 				),
 			},
 			{
 				Config: testAccCheckConfluenceContentConfigUpdated(rName),
 				Check: resource.ComposeTestCheckFunc(
-					testAccCheckConfluenceExists("confluence_content.default"),
-					resource.TestCheckResourceAttr(
-						"confluence_content.default", "title", rName),
-					resource.TestCheckResourceAttr(
-						"confluence_content.default", "body", "Updated value"),
-					resource.TestCheckResourceAttr(
-						"confluence_content.default", "version", "2"),
+					testAccCheckConfluenceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "title", rName),
+					resource.TestCheckResourceAttr(resourceName, "body", "Updated value"),
+					resource.TestCheckResourceAttr(resourceName, "version", "2"),
 				),
 			},
 		},

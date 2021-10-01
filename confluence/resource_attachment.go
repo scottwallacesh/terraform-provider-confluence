@@ -1,7 +1,7 @@
 package confluence
 
 import (
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func resourceAttachment() *schema.Resource {
@@ -11,7 +11,7 @@ func resourceAttachment() *schema.Resource {
 		Update: resourceAttachmentUpdate,
 		Delete: resourceAttachmentDelete,
 		Importer: &schema.ResourceImporter{
-			State: schema.ImportStatePassthrough,
+			StateContext: schema.ImportStatePassthroughContext,
 		},
 
 		Schema: map[string]*schema.Schema{
