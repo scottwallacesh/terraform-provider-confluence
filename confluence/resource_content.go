@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 )
 
 func resourceContent() *schema.Resource {
@@ -34,8 +35,9 @@ func resourceContent() *schema.Resource {
 				DiffSuppressFunc: resourceContentDiffBody,
 			},
 			"title": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:         schema.TypeString,
+				Required:     true,
+				ValidateFunc: validation.StringLenBetween(0, 255),
 			},
 			"version": {
 				Type:     schema.TypeInt,

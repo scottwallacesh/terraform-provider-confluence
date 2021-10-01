@@ -11,6 +11,8 @@ import (
 
 func TestAccConfluenceAttachment_Created(t *testing.T) {
 	rName := acctest.RandomWithPrefix("resource-attachment-test")
+	resourceName := "confluence_attachment.default"
+
 	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { testAccPreCheck(t) },
 		Providers:    testAccProviders,
@@ -19,13 +21,10 @@ func TestAccConfluenceAttachment_Created(t *testing.T) {
 			{
 				Config: testAccCheckConfluenceAttachmentConfigRequired(rName),
 				Check: resource.ComposeTestCheckFunc(
-					testAccCheckConfluenceExists("confluence_attachment.default"),
-					resource.TestCheckResourceAttr(
-						"confluence_attachment.default", "title", "file.txt"),
-					resource.TestCheckResourceAttr(
-						"confluence_attachment.default", "data", rName),
-					resource.TestCheckResourceAttr(
-						"confluence_attachment.default", "version", "1"),
+					testAccCheckConfluenceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "title", "file.txt"),
+					resource.TestCheckResourceAttr(resourceName, "data", rName),
+					resource.TestCheckResourceAttr(resourceName, "version", "1"),
 				),
 			},
 		},
