@@ -10,3 +10,4 @@ secrets.env
 # ignore some things terraform could produce in the examples
 .terraform
 terraform.tfstate*
+vendor
