@@ -3,7 +3,6 @@
 /site
 /terraform-provider-confluence*
 /dist
-/docs
 
 # ignore confluence secrets
 terraform.tfvars
