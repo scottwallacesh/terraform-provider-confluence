@@ -103,7 +103,7 @@ func contentFromResourceData(d *schema.ResourceData) *Content {
 	result := &Content{
 		Id:   d.Id(),
 		Type: d.Get("type").(string),
-		Space: &Space{
+		Space: &SpaceKey{
 			Key: d.Get("space").(string),
 		},
 		Body: &Body{

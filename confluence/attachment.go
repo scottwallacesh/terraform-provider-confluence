@@ -37,7 +37,7 @@ func (c *Client) CreateAttachment(attachment *Attachment, data, pageId string) (
 		return nil, err
 	}
 	if len(response.Results) != 1 {
-		return nil, errors.New("Unexpected number of results returned when creating attachment")
+		return nil, errors.New("unexpected number of results returned when creating attachment")
 	}
 	return &response.Results[0], nil
 }
@@ -50,7 +50,7 @@ func (c *Client) UpdateAttachment(attachment *Attachment, data, pageId string) (
 		return nil, err
 	}
 	if len(response.Results) != 1 {
-		return nil, errors.New("Unexpected number of results returned when updating attachment")
+		return nil, errors.New("unexpected number of results returned when updating attachment")
 	}
 	return &response.Results[0], nil
 }
