@@ -1,11 +1,13 @@
 # ignore build products
 /bin
 /site
-/terraform-provider-confluence
+/terraform-provider-confluence*
+/dist
+/docs
 
 # ignore confluence secrets
 terraform.tfvars
-secrets.env
+secrets.*
 
 # ignore some things terraform could produce in the examples
 .terraform

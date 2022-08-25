@@ -1,4 +1,4 @@
-module github.com/chesshacker/terraform-provider-confluence
+module github.com/mesomorphic/terraform-provider-confluence
 
 go 1.16
 
