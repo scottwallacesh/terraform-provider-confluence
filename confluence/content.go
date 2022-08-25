@@ -14,7 +14,7 @@ type Content struct {
 	Id        string        `json:"id,omitempty"`
 	Type      string        `json:"type,omitempty"`
 	Title     string        `json:"title,omitempty"`
-	Space     *Space        `json:"space,omitempty"`
+	Space     *SpaceKey     `json:"space,omitempty"`
 	Version   *Version      `json:"version,omitempty"`
 	Body      *Body         `json:"body,omitempty"`
 	Links     *ContentLinks `json:"_links,omitempty"`
@@ -27,8 +27,8 @@ type ContentLinks struct {
 	WebUI   string `json:"webui,omitempty"`
 }
 
-// Space is part of Content
-type Space struct {
+// SpaceKey is part of Content
+type SpaceKey struct {
 	Key string `json:"key,omitempty"`
 }
 
