@@ -14,7 +14,7 @@ Provides a space on your Confluence site.
 
 ```hcl
 resource confluence_space "default" {
-  key  = "MS"
+  key  = "MYSPACE"
   name   = "My-Space"
 }
 ```

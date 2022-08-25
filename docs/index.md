@@ -30,6 +30,11 @@ resource confluence_content "default" {
   title = "Example Page"
   body  = "<p>This page was built with Terraform</p>"
 }
+
+resource confluence_space "default" {
+  key  = "MYSPACE"
+  name   = "My-Space"
+}
 ```
 
 ## Authentication
