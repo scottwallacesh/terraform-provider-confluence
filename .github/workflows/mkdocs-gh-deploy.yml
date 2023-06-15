@@ -1,10 +1,8 @@
-name: mkdocs gh-deploy
-
+name: Update the docs
 on:
   push:
     branches:
       - master
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,7 +11,7 @@ jobs:
       - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
-          python-version: "3.8"
+          python-version: "3.9"
       - name: Cache pip
         id: cache
         uses: actions/cache@v1
