@@ -4,11 +4,11 @@ INSTALL_DIR=$(HOME)/.terraform.d/plugins
 VERSION=$$(cat VERSION)
 TEST?=$$(go list ./...)
 GOFMT_FILES?=$$(find . -name '*.go')
+provider_path = registry.terraform.io/elc-online/$(PKG_NAME)/$(VERSION)/linux_amd64
+all: fmt check test build
 
-all: check test build
-
-check: bin/golangci-lint
-	bin/golangci-lint run
+check: revive
+	~/go/bin/revive
 
 test:
 	go test -i $(TEST) || exit 1
@@ -32,13 +32,13 @@ clean:
 	rm -f $(BINARY_NAME)
 
 install: $(BINARY_NAME)
-	mkdir -p $(INSTALL_DIR)
-	cp $(BINARY_NAME) $(INSTALL_DIR)/$(BINARY_NAME)_v$(VERSION)
+	mkdir -p $(INSTALL_DIR)/$(provider_path)
+	cp $(BINARY_NAME) $(INSTALL_DIR)/$(provider_path)/$(BINARY_NAME)_v$(VERSION)
 
 uninstall:
-	rm -f $(INSTALL_DIR)/$(BINARY_NAME)
+	rm -rf $(INSTALL_DIR)/$(provider_path)
 
-bin/golangci-lint:
-	scripts/get-golangci.sh
+revive:
+	scripts/get-revive.sh
 
 .PHONY: all build check clean fmt install test testacc uninstall

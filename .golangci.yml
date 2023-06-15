@@ -1,7 +1,7 @@
 linters:
   enable:
     - gofmt
-    - golint
+    - revive
 issues:
   exclude:
     - struct field `\w*Id` should be `\w*ID`
