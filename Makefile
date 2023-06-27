@@ -4,7 +4,7 @@ INSTALL_DIR=$(HOME)/.terraform.d/plugins
 VERSION=$$(cat VERSION)
 TEST?=$$(go list ./...)
 GOFMT_FILES?=$$(find . -name '*.go')
-provider_path = registry.terraform.io/elc-online/$(PKG_NAME)/$(VERSION)/linux_amd64
+provider_path = registry.terraform.io/scottwallacesh/$(PKG_NAME)/$(VERSION)/linux_amd64
 all: fmt check test build
 
 check: revive

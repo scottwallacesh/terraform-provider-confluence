@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/elc-online/terraform-provider-confluence/confluence"
+	"github.com/scottwallacesh/terraform-provider-confluence/confluence"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 )
 

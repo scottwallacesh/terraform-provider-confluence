@@ -1,4 +1,4 @@
-module github.com/elc-online/terraform-provider-confluence
+module github.com/scottwallacesh/terraform-provider-confluence
 
 go 1.16
 

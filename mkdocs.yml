@@ -1,6 +1,6 @@
 site_name: "Terraform Provider: Confluence"
-site_url: https://github.com/elc-online/terraform-provider-confluence
-repo_url: https://github.com/elc-online/terraform-provider-confluence
+site_url: https://github.com/scottwallacesh/terraform-provider-confluence
+repo_url: https://github.com/scottwallacesh/terraform-provider-confluence
 nav:
 - Getting Started: index.md
 - Resources:
